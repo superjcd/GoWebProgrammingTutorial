@@ -80,8 +80,8 @@ import (
 
 func body(w http.ResponseWriter, r *http.Request) {
 		len := r.ContentLength
-		**body := make([]byte, len)
-		r.Body.Read(body)**
+		body := make([]byte, len)
+		r.Body.Read(body)
 		fmt.Fprintln(w, string(body))
 }
 
@@ -165,8 +165,8 @@ import (
 )
 
 func process(w http.ResponseWriter, r *http.Request) {
-	 **r.ParseForm()
-	 fmt.Fprintln(w, r.Form)**
+	 r.ParseForm()
+	 fmt.Fprintln(w, r.Form)
 }
 
 func main() {
@@ -178,7 +178,7 @@ func main() {
 }
 ```
 
-重要 的代码其实已经加粗了：
+重要的代码其实就是下面的两句：
 
 ```go
 r.ParseForm()
@@ -253,7 +253,7 @@ import (
 )
 
 func process(w http.ResponseWriter, r *http.Request) {
-	**file, _, err := r.FormFile("uploaded")  // 第二个返回值是*multipart.FileHeader， 这里可以忽略**
+	file, _, err := r.FormFile("uploaded")  // 第二个返回值是*multipart.FileHeader， 这里可以忽略
 	if err == nil {
 		data, err := ioutil.ReadAll(file)
 		if err == nil {

@@ -18,7 +18,7 @@ MVC中的V就是我们常说的视图部分， 在支持MVC的框架中, 视图�
     <title>Hello world</title>
   </head>
   <body>
-    **{{ . }}**
+    {{ . }}
   </body>
 </html>
 ```
@@ -33,10 +33,10 @@ import (
 	"net/http"
 )
 
-**func helloWorld(w http.ResponseWriter, r *http.Request) {
+func helloWorld(w http.ResponseWriter, r *http.Request) {
 	t, _ := template.ParseFiles("tmpl.html")
 	t.Execute(w, "Hello World!")
-}**
+}
 
 func main() {
 	server := http.Server{
@@ -63,7 +63,7 @@ t := template.Must(template.ParseFiles("tmpl.html"))
 - 对返回的Template对象调用Execute， 把数据传入到我们模板中:
 
 ```go
-**t.Execute(w, "Hello World!")**
+t.Execute(w, "Hello World!")
 ```
 
 这里的数据就是“Hello World”， 当然除了字符串类型， 也可以是任意其他的go类型。
@@ -299,8 +299,8 @@ block指令的作用是提供一个默认模板：
 
 ```go
 func process(w http.ResponseWriter, r *http.Request) {
-		 **funcMap := template.FuncMap{ "fdate": formatDate }**
-		 **t := template.New("tmpl.html").Funcs(funcMap)**
+		 funcMap := template.FuncMap{ "fdate": formatDate }
+		 t := template.New("tmpl.html").Funcs(funcMap)
 		 t, _ = t.ParseFiles("tmpl.html")
 		 t.Execute(w, time.Now())
 }
@@ -415,7 +415,7 @@ func main() {
 func process(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("X-XSS-Protection", "0")
 		t, _ := template.ParseFiles("tmpl.html")
-		**t.Execute(w, template.HTML(r.FormValue("comment")))**
+		t.Execute(w, template.HTML(r.FormValue("comment")))
 }
 ```
 
