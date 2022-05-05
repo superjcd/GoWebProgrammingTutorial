@@ -21,5 +21,7 @@
  - [Request & Response](./request_and_response.md)
  - [Cookie](./cookie.md)
  - [Template](./template.md)
- - Database
- - ChitChat(项目开发)
+ - [Database](./database.md)
+ - [ChitChat(项目开发)](./chitchat.md)
+
+ 你可以按顺序阅读代码， 也可以直接试着运行chitchat文件中的代码, 然后对照ChitChat(项目开发)的说明来进行学习。

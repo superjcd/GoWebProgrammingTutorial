@@ -1,0 +1,11 @@
+{
+  "Address"        : "0.0.0.0:8080",
+  "ReadTimeout"    : 10,
+  "WriteTimeout"   : 600,
+  "Static"         : "public",
+  "DBHost"         : "127.0.0.1",
+  "DBPort"         : "5432",
+  "DBUser"         :"postgres",
+  "DBPassword"     :"root",
+  "DBName"         :"chitchat"
+}
